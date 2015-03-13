@@ -1,9 +1,11 @@
 #!/bin/bash
 
+FREE=`free -m | awk  'NR==2 {print $4}'`
+PARAM="600"
 
-#sync && echo 1 > /proc/sys/vm/drop_caches
-#echo "liberando cache de paginas"
-#sync && echo 2 > /proc/sys/vm/drop_caches
-#echo "liberando as dentries e inodes"
-#sync && echo 3 > /proc/sys/vm/drop_caches
-echo "liberando o cache de paginas, dentries e inodes. fodendo com tudo"
+if [  $FREE -lt  $PARAM ]
+then
+  echo 3 > /proc/sys/vm/drop_caches
+else
+fi
+
