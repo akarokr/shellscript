@@ -1,9 +1,21 @@
 ################################################################################################
 # monitora a bateria de um laptop no debian. fique atento ao nome da bateria presente no sistema,                            #
-# para saber, dê um ls na pasta "/sys/class/power_supply/".    
+# para saber, dê um ls na pasta "/sys/class/power_supply/".
 # Usado como referência: https://www.kernel.org/doc/Documentation/power/power_supply_class.txt
 # espeak -vpt+whisper -s 140 "vou te matar" ---> espeak, programa para sintetizar a voz
 ################################################################################################
+
+
+#beepFunc=$(beep; beep; beep)
+
+function beepFun(){
+  c=1
+    while [ $c -le 5 ]; do
+        #Cbeep
+        (( c++ ))
+    done;
+}
+
 
 #!/bin/bash
 
