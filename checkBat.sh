@@ -23,8 +23,12 @@ function beepFun(){
 bat="BAT1"     #bateria a ser monitorada
 intervalo=5;   #intervalo de atualizacao em segundos
 charge="Charging" #indicacao do estado para comparacao
+GREEN="\033[01;32m"
+RED="\033[01;31m"
+WHITE="\033[01;37"
+NONE="\033[0m" 
 
- while : ; do
+ while true ; do
 
 
    clear;
