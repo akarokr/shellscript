@@ -25,15 +25,16 @@ intervalo=5;   #intervalo de atualizacao em segundos
 charge="Charging" #indicacao do estado para comparacao
 GREEN="\033[01;32m"
 RED="\033[01;31m"
-WHITE="\033[01;37"
-NONE="\033[0m" 
+WHITE="\033[01;37m"
+NONE="\033[0m"
+YELLOW="\033[01;33m"
 
  while true ; do
 
 
    clear;
    echo ''
-   echo -e '\033[01;37mMonitorando a Bateria:\033[0m:' $bat;
+   echo -e ''$WHITE'Monitorando a Bateria:'$NONE':' $bat;
    echo ''
 
    carga=$(cat /sys/class/power_supply/BAT1/power_now) ;
@@ -42,24 +43,24 @@ NONE="\033[0m"
    estado=$(cat /sys/class/power_supply/BAT1/status);
 
    if [ $capacidade -lt '5' ]; then
-      capacidade=$(echo -e '\033[05;31m'$capacidade'\033[0m')
+      capacidade=$(echo -e ''$RED''$capacidade''$NONE'')
       AVISO='conecte na fonte, bateria em estado crítico'
       beep
    elif [ $capacidade -lt '10' ]; then
-     capacidade=$(echo -e '\033[01;31m'$capacidade'\033[0m')
+     capacidade=$(echo -e ''$RED''$capacidade''$NONE'')
      AVISO=''
    elif [ $capacidade -lt '20' ]; then
-     capacidade=$(echo -e '\033[01;33m'$capacidade'\033[0m')
+     capacidade=$(echo -e ''$YELLOW''$capacidade''$NONE'')
      AVISO=''
    else
-     capacidade=$(echo -e '\033[01;32m'$capacidade'\033[0m')
+     capacidade=$(echo -e ''$GREEN''$capacidade''$NONE'')
      AVISO=''
    fi;
 
-   echo -e '\033[01;37mCarga total:\033[0m '$carga_full' mAh'
-   echo -e '\033[01;37mCarga atual:\033[0m' $carga 'mAh';
-   echo -e '\033[01;37mCapacidade: \033[0m'$capacidade '%';
-   echo -ne '\033[01;37mEstado: \033[0m'
+   echo -e ''$WHITE'Carga total:'$NONE' '$carga_full' mAh'
+   echo -e ''$WHITE'Carga atual:'$NONE'' $carga 'mAh';
+   echo -e ''$WHITE'Capacidade: '$NONE''$capacidade '%';
+   echo -ne ''$WHITE'Estado: '$NONE''
 
    if [ $estado == $charge ]; then
       echo -ne "carregando."
@@ -73,7 +74,7 @@ NONE="\033[0m"
 
    echo ''
 
-   echo -e '\033[1;5;31m'$AVISO'\033[0m'
+   echo -e ''$RED''$AVISO''$NONE''
 
    sleep $intervalo;
  done;
