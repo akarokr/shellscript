@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Tutorial em forma de comando para ajudar quem está começando.
+# Mini tutorial de git em forma de comando para ajudar quem está começando. Jogue ele no /usr/bin/ com a permissão 755.
 
 WHITE="\033[01;37m"
 NONE="\033[0m"
