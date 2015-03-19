@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# Mini tutorial de git em forma de comando para ajudar quem está começando. Jogue ele no /usr/bin/ com a permissão 755.
+# Mini tutorial de git em forma de comando para ajudar quem está começando.
+# Jogue ele no /usr/bin/ com a permissão 755.
+# Para mais referências: http://rogerdudler.github.io/git-guide/index.pt_BR.html
 
 WHITE="\033[01;37m"
 NONE="\033[0m"
