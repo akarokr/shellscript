@@ -33,6 +33,7 @@ Selection the plugin with the ls
 ![Selecting the plugin with the ls](http://i.imgur.com/lwWudIn.png)
 
 When the plugin is instaled
+
 ![When the plugin is instaled](http://i.imgur.com/G6J8Wg6.png)
 
 
