@@ -29,7 +29,10 @@ I'm trying to set a completion to this plugin, but i'm having some problems with
 
 ##Screenshots
 
+Selection the plugin with the ls
 ![Selecting the plugin with the ls](http://i.imgur.com/lwWudIn.png)
+
+When the plugin is instaled
 ![When the plugin is instaled](http://i.imgur.com/G6J8Wg6.png)
 
 
