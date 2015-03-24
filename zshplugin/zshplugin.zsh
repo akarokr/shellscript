@@ -2,18 +2,20 @@
 
 GREEN="\033[0;32m"
 RED="\033[0;31m"
+WHITE="\033[01;37m"
 NONE="\033[0m"
 text_input=$1
 
-echo -n $text_input | egrep "\/"
+echo -n "selected plugin: "$WHITE $text_input $NONE | egrep "\/"
 std_type=$?
 
 if [ $std_type -eq 0 ]; then
   plugin_novo=$(echo $text_input | awk -F '/' '{print $2}')
-  echo "installing " $plugin_novo
+  echo "installing "$plugin_novo
 else
   plugin_novo=$text_input
-  echo "installing " $plugin_novo
+  echo "selected plugin: "$WHITE $plugin_novo $NONE
+  echo "installing "$plugin_novo
 fi
 
 if [ -z ~/.zshrc ]; then

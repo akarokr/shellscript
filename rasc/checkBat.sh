@@ -1,42 +1,59 @@
-#!/usr/bin/env bash
-
 ################################################################################################
 # monitora a bateria de um laptop no debian. fique atento ao nome da bateria presente no sistema,                            #
 # para saber, dê um ls na pasta "/sys/class/power_supply/".
 # Usado como referência: https://www.kernel.org/doc/Documentation/power/power_supply_class.txt
 # espeak -vpt+whisper -s 140 "vou te matar" ---> espeak, programa para sintetizar a voz
-###############################################################################################
+################################################################################################
+
+
+#beepFunc=$(beep; beep; beep)
+
+function beepFun(){
+  c=1
+    while [ $c -le 5 ]; do
+        #Cbeep
+        (( c++ ))
+    done;
+}
+
+
+#!/bin/bash
+
 
 bat="BAT1"     #bateria a ser monitorada
 intervalo=5;   #intervalo de atualizacao em segundos
 charge="Charging" #indicacao do estado para comparacao
 GREEN="\033[01;32m"
 RED="\033[01;31m"
-WHITE="\033[01;37m"
+WHITE='\033[01;37m'
+YELLOW='\033[01;33m'
 NONE="\033[0m"
-YELLOW="\033[01;33m"
 
- while true ; do
+
+ while : ; do
 
 
    clear;
    echo ''
-   echo -e ''$WHITE'Monitorando a Bateria:'$NONE':' $bat;
+   echo -e ''$WHITE'Monitorando a Bateria:'$NONE'' $bat;
    echo ''
 
-   carga=$(cat /sys/class/power_supply/BAT1/power_now) ;
-   carga_full=$(cat /sys/class/power_supply/BAT1/energy_full);
-   capacidade=$(cat /sys/class/power_supply/BAT1/capacity);
-   estado=$(cat /sys/class/power_supply/BAT1/status);
+   #carga=$(cat /sys/class/power_supply/BAT1/power_now) ;
+   #carga_full=$(cat /sys/class/power_supply/BAT1/energy_full);
+   #capacidade=$(cat /sys/class/power_supply/BAT1/capacity);
+   #estado=$(cat /sys/class/power_supply/BAT1/status);
+   carga=13213
+   carga_full=13500000
+   capacidade=$(cat /home/lmoura/capacidade);
+   estado='Charging'
 
    if [ $capacidade -lt '5' ]; then
       capacidade=$(echo -e ''$RED''$capacidade''$NONE'')
       AVISO='conecte na fonte, bateria em estado crítico'
-	    beep; beep; beep; beep;
+       beep; beep; beep;
    elif [ $capacidade -lt '10' ]; then
      capacidade=$(echo -e ''$RED''$capacidade''$NONE'')
      AVISO=''
-     beep; beep; beep; beep;
    elif [ $capacidade -lt '20' ]; then
      capacidade=$(echo -e ''$YELLOW''$capacidade''$NONE'')
      AVISO=''
@@ -46,8 +63,8 @@ YELLOW="\033[01;33m"
    fi;
 
    echo -e ''$WHITE'Carga total:'$NONE' '$carga_full' mAh'
-   echo -e ''$WHITE'Carga atual:'$NONE'' $carga 'mAh';
-   echo -e ''$WHITE'Capacidade: '$NONE''$capacidade '%';
+   echo -e ''$WHITE'Carga atual:'$NONE' '$carga 'mAh';
+   echo -e ''$WHITE'Capacidade:'$NONE' '$capacidade '%';
    echo -ne ''$WHITE'Estado: '$NONE''
 
    if [ $estado == $charge ]; then
@@ -62,7 +79,7 @@ YELLOW="\033[01;33m"
 
    echo ''
 
-   echo -e ''$RED''$AVISO''$NONE''
+   echo -e ''$RED $AVISO $NONE''
 
    sleep $intervalo;
  done;
