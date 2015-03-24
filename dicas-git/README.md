@@ -5,10 +5,10 @@ Linux command to help new users to remember the git commands. The script is in t
 Usage
 --
 Set the permissions to the following:
-<pre><code>$ sudo chmod 755 git-tips.sh <pre><code>
+<pre><code>$ sudo chmod 755 git-tips.sh </pre></code>
 
 To use correctly, put the script in the /usr/bin folder removing the extension <strong>.sh</strong>. You can change the command name for better usage.
-<pre><code>$ sudo mv git-tips.sh /usr/bin/git-tips<pre><code>
+<pre><code>$ sudo mv git-tips.sh /usr/bin/git-tips</pre></code>
 
 
 Comando dicas-git
