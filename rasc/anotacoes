@@ -1,0 +1,17 @@
+Parâmetros de teste para o checkBat.sh:
+
+#carga=3213213213
+#carga_full=1000000000
+#capacidade=$(cat /home/lmoura/capacidade)
+#estado='Charging'
+
+#beepFunc=$(beep; beep; beep)
+
+
+function beepFun(){
+  c=1
+    while [ $c -le 5 ]; do
+        #Cbeep
+        (( c++ ))
+    done;
+}

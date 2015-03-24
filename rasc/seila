@@ -1,0 +1,32 @@
+#!/bin/zsh
+
+export LC_ALL=C
+export PATH=/bin:/usr/bin:/sbin:/usr/sbin
+
+lista_plugin=$(egrep -o "plugins=\(.*\)" ~/.zshrc | egrep -o "\(.*\)" | egrep -o "([[:alnum:]]|\-|[[:blank:]]|_)+")
+orig_plugin=$(egrep "plugins\=\(git\ last\-working\-dir\)")" ~/.zshrc)
+input_text=$1
+tmpzsh="/home/lmoura/exemplo"
+
+#newplugin=$(echo "plugins=($lista_plugin $input_text)")
+#newstring=`echo "$input_text" | tr '[A-Z]' '[a-z]'`
+
+#new_plugin=$(egrep -o "/.*" $newstring | egrep -o "([[:alnum:]]|\-|[[:blank:]]|_)+")
+
+newplugin=$(echo "plugins=($lista_plugin $input_text)")
+
+echo ""
+echo "list_plugin: "$lista_plugin
+echo ""
+echo "orig_plugin: "$orig_plugin
+echo ""
+echo "input_text: "$input_text
+echo ""
+echo "newplugin: "$newplugin
+echo ""
+
+#print $newplugin
+
+#print $teste
+
+#/bin/sed -ie "s/'$orig_plugin'/'$newplugin'/g" /home/lmoura/.zshrc >> /home/lmoura/.zshrc
