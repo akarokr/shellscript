@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# For further reference: http://rogerdudler.github.io/git-guide/index.pt_BR.html
+
+WHITE="\033[01;37m"
+NONE="\033[0m"
+
+echo ""
+echo "REMEMBER:"
+echo -e "Always be at .git folder, to check use '$WHITE'ls -la.'$NONE'"
+echo ""
+echo "1.To add a file into your git repo use:"
+echo -e "$WHITE git add <file name>$NONE"
+echo ""
+echo "2.After that, commit the change with the following command:"
+echo -e "$WHITE git commit -m <alguma mensagem>$NONE"
+echo ""
+echo "3. Push the information to the remote repo:"
+echo -e "$WHITE git push -u origin master $NONE"
+echo ""
+echo "If you did not have the repo yet, create a repo in your favorite web-based git:"
+echo ""
+echo "1.Init the repo:"
+echo -e "$WHITE git init $NONE"
+echo ""
+echo "2.Add the repo to your machine:"
+echo -e "$WHITE git remote add origin git@github.com:usuario/repositorio.git $NONE"
+echo ""
+echo "3.Download the repo content:"
+echo -e "$WHITE git pull origin master $NONE"
