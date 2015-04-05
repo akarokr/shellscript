@@ -7,9 +7,9 @@
 # espeak -vpt+whisper -s 140 "vou te matar" ---> espeak, programa para sintetizar a voz
 ###############################################################################################
 
-bat="BAT1"     #bateria a ser monitorada
-intervalo=5;   #intervalo de atualizacao em segundos
-charge="Charging" #indicacao do estado para comparacao
+bat="BAT1"     # bateria a ser monitorada
+intervalo=5;   # intervalo de atualizacao em segundos
+charge="Charging" # indicacao do estado para comparacao
 GREEN="\033[01;32m"
 RED="\033[01;31m"
 WHITE="\033[01;37m"
