@@ -40,6 +40,7 @@ YELLOW="\033[01;33m"
    elif [ $capacidade -lt '20' ]; then
      capacidade=$(echo -e ''$YELLOW''$capacidade''$NONE'')
      AVISO=''
+     beep; beep; beep; beep;
    else
      capacidade=$(echo -e ''$GREEN''$capacidade''$NONE'')
      AVISO=''
